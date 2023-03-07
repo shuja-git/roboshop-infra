@@ -4,31 +4,17 @@ data "aws_ami" "ami" {
   owners      = ["973714476881"]
 }
 
-
-resource "aws_instance" "ec2" {
+resource "aws_instance" "machine" {
   ami           = data.aws_ami.ami.image_id
-  instance_type = "t3.micro"
-  vpc_security_group_ids = ["sg-0f814c32290173c7c"]
+  instance_type = var.instance_type
+  vpc_security_group_ids = [aws_security_group.sg.id]
   tags = {
-    Name = "frontend"
+    Name = "${var.env}-${var.component}"
   }
-
-  provisioner "remote-exec" {
-    connection {
-      host = self.public_ip
-      user = "root"
-      password = "DevOps321"
-    }
-    inline = [
-     "git clone https://github.com/shuja-git/roboshop-shell",
-      "cd roboshop-shell",
-      "sudo bash ${var.component}.sh"
-    ]
-  }
-
 }
-resource "aws_security_group" "allow_tls" {
-  name        = "${var.component}-${var.env}-sg"
+
+resource "aws_security_group" "sg" {
+  name        =  "${var.env}-${var.component}-sg"
   description = "Allow TLS inbound traffic"
 
   ingress {
@@ -46,19 +32,13 @@ resource "aws_security_group" "allow_tls" {
   }
 
   tags = {
-    Name = "${var.component}-${var.env}-sg"
+    Name = "${var.env}-${var.component}-sg"
   }
 }
-
-resource "aws_route53_record" "frontend" {
+resource "aws_route53_record" "record" {
   zone_id = "Z10218511FGAD8YC6L1HI"
   name    = "${var.component}-dev.shujadevops.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.ec2.private_ip]
-}
-
-variable "component" {}
-variable "env" {
-  default = "dev"
+  records = [aws_instance.machine.private_ip]
 }
