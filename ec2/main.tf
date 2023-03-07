@@ -9,7 +9,7 @@ resource "aws_instance" "machine" {
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.sg.id]
   tags = {
-    Name = "${var.env}-${var.component}"
+    Name = "${var.component}-${var.env}"
   }
   provisioner "remote-exec" {
     connection {
@@ -27,7 +27,7 @@ resource "aws_instance" "machine" {
 }
 
 resource "aws_security_group" "sg" {
-  name        =  "${var.env}-${var.component}-sg"
+  name        =  "${var.component}-${var.env}-sg"
   description = "Allow TLS inbound traffic"
 
   ingress {
@@ -45,7 +45,7 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "${var.env}-${var.component}-sg"
+    Name = "${var.component}-${var.env}-sg"
   }
 }
 resource "aws_route53_record" "record" {
