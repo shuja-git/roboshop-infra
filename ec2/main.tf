@@ -27,7 +27,7 @@ resource "aws_instance" "machine" {
 }
 
 resource "aws_security_group" "sg" {
-  name        =  "sg-${var.component}-${var.env}"
+  name        =  "${var.env}-${var.component}-sg"
   description = "Allow TLS inbound traffic"
 
   ingress {
@@ -45,7 +45,7 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "sg-${var.component}-${var.env}"
+    Name = "${var.env}-${var.component}-sg"
   }
 }
 resource "aws_route53_record" "record" {
