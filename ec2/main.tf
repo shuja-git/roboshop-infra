@@ -11,10 +11,23 @@ resource "aws_instance" "machine" {
   tags = {
     Name = "${var.env}-${var.component}"
   }
+  provisioner "remote-exec" {
+    connection {
+      host = self.public_ip
+      user = "centos"
+      password = "DevOps321"
+    }
+   inline = [
+    "git clone https://github.com/shuja-git/roboshop-shell",
+     "cd roboshop-shell",
+     "bash ${component}.sh ${env}"
+   ]
+  }
+
 }
 
 resource "aws_security_group" "sg" {
-  name        =  "${var.env}-${var.component}-sg"
+  name        =  "sg-${var.component}-${var.env}"
   description = "Allow TLS inbound traffic"
 
   ingress {
@@ -32,7 +45,7 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "${var.env}-${var.component}-sg"
+    Name = "sg-${var.component}-${var.env}"
   }
 }
 resource "aws_route53_record" "record" {
