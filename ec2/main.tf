@@ -20,7 +20,7 @@ resource "aws_instance" "machine" {
    inline = [
     "git clone https://github.com/shuja-git/roboshop-shell",
      "cd roboshop-shell",
-     "bash ${component}.sh ${env}"
+     "bash ${var.component}.sh"
    ]
   }
 
