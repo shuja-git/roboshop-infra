@@ -11,17 +11,19 @@ resource "aws_instance" "machine" {
   tags = {
     Name = "${var.component}-${var.env}"
   }
+ }
+resource "null_resource" "null" {
   provisioner "remote-exec" {
     connection {
-      host = self.public_ip
+      host = aws_instance.machine.public_ip
       user = "centos"
       password = "DevOps321"
     }
-   inline = [
-    "git clone https://github.com/shuja-git/roboshop-shell",
-     "cd roboshop-shell",
-     "bash ${var.component}.sh"
-   ]
+    inline = [
+      "git clone https://github.com/shuja-git/roboshop-shell",
+      "cd roboshop-shell",
+      "bash ${var.component}.sh"
+    ]
   }
 
 }
