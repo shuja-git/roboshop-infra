@@ -12,8 +12,11 @@ resource "aws_instance" "machine" {
     Name = "${var.component}-${var.env}"
   }
  }
+
 resource "null_resource" "provisioner" {
+
   provisioner "remote-exec" {
+
     connection {
       host = aws_instance.machine.public_ip
       user = "centos"
