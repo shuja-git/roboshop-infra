@@ -3,4 +3,4 @@ variable "component" {}
 variable "env" {
   default = "dev"
 }
-variable "password" {}
+#variable "password" {}
