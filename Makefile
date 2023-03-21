@@ -1,4 +1,4 @@
 dev-apply:
-    echo Hello apply
+    echo dev-apply
 dev-destroy:
-    echo Hello destroy
+    echo dev-destroy
