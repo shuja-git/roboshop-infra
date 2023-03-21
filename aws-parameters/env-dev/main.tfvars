@@ -1,4 +1,7 @@
 parameters = [
-  { name = "test1", type = "String", value = "Hello Universe"},
-  { name = "dev.frontend.CATALOGUE_URL", type = "String", value = "http://catalogue-dev.shujadevops.online:8080/"}
+  { name = "dev.frontend.catalogue_url", type = "String", value = "http://localhost:8080/"},
+  { name = "dev.frontend.user_url", type = "String", value = "http://localhost:8080/"},
+  { name = "dev.frontend.cart_url", type = "String", value = "http://localhost:8080/"},
+  { name = "dev.frontend.payment_url", type = "String", value = "http://localhost:8080/"},
+  { name = "dev.frontend.shipping_url", type = "String", value = "http://localhost:8080/"}
 ]
