@@ -3,6 +3,4 @@ module "ec2" {
   source = "./ec2"
   instance_type = each.value["type"]
   component = each.value["name"]
-#  password = try(each.value["password"], "null") "password is needed in shell
-
 }
