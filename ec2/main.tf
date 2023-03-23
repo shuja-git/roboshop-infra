@@ -21,7 +21,7 @@ resource "null_resource" "provisioner" {
 #      "git clone https://github.com/shuja-git/roboshop-shell",
 #      "cd roboshop-shell",
 #      "sudo bash ${var.component}.sh ${var.password}"
-      "ansible-pull -i localhost, -U https://github.com/shuja-git/roboshop-ansible roboshop.yml -e role_name=${var.component} -e env=${env}"
+      "ansible-pull -i localhost, -U https://github.com/shuja-git/roboshop-ansible roboshop.yml -e role_name=${var.component} -e env=${var.env}"
     ]
   }
 
