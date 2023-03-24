@@ -20,5 +20,7 @@ parameters = [
   { name = "dev.cart.catalogue_host", type = "String", value = "catalogue-dev.shujadevops.online"},
   { name = "dev.cart.catalogue_port", type = "String", value = "8080"}
 ]
-
+secrets = [
+   { name = "test", type = "SecureString", value = "8080"}
+]
 
