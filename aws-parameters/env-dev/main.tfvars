@@ -13,7 +13,7 @@ parameters = [
   { name = "dev.payment.cart_port", type = "String", value = "8080"},
   { name = "dev.payment.user_host", type = "String", value = "user-dev.shujadevops.online"},
   { name = "dev.payment.user_port", type = "String", value = "8080"},
-  { name = "dev.payment.amq_host", type = "String", value = "rabbitmq-dev.shujadevops.online"},
+  { name = "dev.payment.amqp_host", type = "String", value = "rabbitmq-dev.shujadevops.online"},
   { name = "dev.catalogue.mongo", type = "String", value = "true"},
   { name = "dev.catalogue.mongo_url", type = "String", value = "mongodb://mongodb-dev.shujadevops.online:27017/users"},
   { name = "dev.cart.redis_host", type = "String", value = "redis-dev.shujadevops.online"},
@@ -22,10 +22,10 @@ parameters = [
 ]
 secrets = [
    { name = "dev.mysql.password", type = "SecureString", value = "RoboShop@1"},
-  { name = "dev.payment.amq_user", type = "SecureString", value = "roboshop"},
-  { name = "dev.payment.amq_pass", type = "SecureString", value = "roboshop123"},
-  { name = "dev.rabbitmq.amq_user", type = "SecureString", value = "roboshop123"},
-  { name = "dev.rabbitmq.amq_pass", type = "SecureString", value = "roboshop123"}
+  { name = "dev.payment.amqp_user", type = "SecureString", value = "roboshop"},
+  { name = "dev.payment.amqp_pass", type = "SecureString", value = "roboshop123"},
+  { name = "dev.rabbitmq.amqp_user", type = "SecureString", value = "roboshop123"},
+  { name = "dev.rabbitmq.amqp_pass", type = "SecureString", value = "roboshop123"}
 
 ]
 
