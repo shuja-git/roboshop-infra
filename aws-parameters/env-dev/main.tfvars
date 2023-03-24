@@ -21,6 +21,11 @@ parameters = [
   { name = "dev.cart.catalogue_port", type = "String", value = "8080"}
 ]
 secrets = [
-   { name = "test", type = "SecureString", value = "8080"}
+   { name = "dev.mysql.password", type = "SecureString", value = "RoboShop@1"},
+  { name = "dev.payment.amq_user", type = "SecureString", value = "roboshop"},
+  { name = "dev.payment.amq_pass", type = "SecureString", value = "roboshop123"},
+  { name = "dev.rabbitmq.amq_user", type = "SecureString", value = "roboshop123"},
+  { name = "dev.rabbitmq.amq_pass", type = "SecureString", value = "roboshop123"},
+
 ]
 
