@@ -25,7 +25,7 @@ secrets = [
   { name = "dev.payment.amq_user", type = "SecureString", value = "roboshop"},
   { name = "dev.payment.amq_pass", type = "SecureString", value = "roboshop123"},
   { name = "dev.rabbitmq.amq_user", type = "SecureString", value = "roboshop123"},
-  { name = "dev.rabbitmq.amq_pass", type = "SecureString", value = "roboshop123"},
+  { name = "dev.rabbitmq.amq_pass", type = "SecureString", value = "roboshop123"}
 
 ]
 
